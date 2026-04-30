@@ -9,9 +9,9 @@ class UnionFind:
 
     def find(self, x):
         if self.parent[x] != x:
-           self.parent[x] = self.find(self.parent[x])
+            self.parent[x] = self.find(self.parent[x])
         return self.parent[x]
-    
+
     def union(self, x, y):
         root_x = self.find(x)
         root_y = self.find(y)
@@ -29,7 +29,7 @@ class UnionFind:
         return True
 
 def kruskal(edges, nodes):
-    edges = sorted(edges, key=lambda e: e[3])    
+    edges = sorted(edges, key=lambda e: e[3])
     uf = UnionFind(nodes)
     mst = []
 
