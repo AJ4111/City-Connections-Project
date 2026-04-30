@@ -1,7 +1,8 @@
 # min-priority queue
 class MinPriorityQueue:
     """
-    docstring
+    Min-heap priority queue.
+    Mantains a position dictionary so any node can be located in the heap at O(1).
     """
 
     def __init__(self):
@@ -10,17 +11,18 @@ class MinPriorityQueue:
 
     def insert(self, node, distance):
         """
-        insert docstring
+        Add new node with given priority key.
+        Appends to the end of the heap and sifts up to restore property.
         """
         entry = [distance, node]
         self.position[node] = len(self.heap)
-        self.heap.append(entry)
         self.heap.append(entry)
         self._sift_up(len(self.heap) - 1)
 
     def update(self, node, new_distance):
         """
-        decrease docstring
+        Decrease priority key of a node.
+        Looks up node's index and updates its key in place.
         """
         ind = self.position[node]
         self.heap[ind][0] = new_distance
@@ -28,7 +30,8 @@ class MinPriorityQueue:
 
     def extract_min(self):
         """
-        docstring
+        Removes and returns node with smallest key in heap.
+        Swaps root with last element, then pop, and sifts the new root down.
         """
         self._swap(0, len(self.heap) - 1)
         min_entry = self.heap.pop()
@@ -39,19 +42,19 @@ class MinPriorityQueue:
     
     def is_in(self, node):
         """
-        docstring
+        Checks if node is currently in priority queue.
         """
         return node in self.position
     
     def is_empty(self):
         """
-        docstring
+        Checks if queue is empty.
         """
         return len(self.heap) == 0
     
     def _swap(self, i, j):
         """
-        docstring
+        Swaps heap entries at index i and j.
         """
         self.position[self.heap[i][1]] = j
         self.position[self.heap[j][1]] = i
@@ -59,7 +62,7 @@ class MinPriorityQueue:
 
     def _sift_up(self, i):
         """
-        docstring
+        Move entry at index i up the heap until the min-heap property is restored.
         """
         while i > 0:
             parent = (i - 1) // 2
@@ -71,7 +74,7 @@ class MinPriorityQueue:
 
     def _sift_down(self, i):
         """
-        docstring
+        Move entry at index i down the heap until the min-heap property is restored.
         """
         n = len(self.heap)
         left = 2 * i + 1
@@ -92,9 +95,17 @@ class MinPriorityQueue:
             i = smallest
             left = 2 * i + 1
     
-def prim(edges, nodes, adjacency_list):
+def prim(nodes, adjacency_list):
     """
-    docstring
+    Computes MST using Prim's algorithm.
+
+    Args:
+            nodes: set of nodes in graph
+            adjacency_list: dictionary mapping node to a list of (neighbor, weight, edge_id)
+    
+    Return:
+            list of tuples forming mst in the order edges were added.
+            empty if there are no nodes or graph is disconnected before nodes are reached.
     """
     if not nodes:
         return []
