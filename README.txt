@@ -3,16 +3,27 @@ City Connections Project - CSCI 311 Spring 2026
 HOW TO RUN:
 python main.py inputfile outputfile
 
+Example:
+python main.py OL.cedge.txt output.txt
+
+DESCRIPTION:
+This program computes a Minimum Spanning Tree (MST) for a given graph. 
+We implemented two algorithms: Kruskal’s algorithm and Prim’s algorithm.
+Both aim to connect all nodes with the minimum total edge weight.
+
 FILES:
-graph_utils.py  - file reader, adjacency list builder, file writer, union-find, min-heap
-main.py         - entry point, ties everything together
+main.py         - main program; reads input, runs MST algorithm, writes output
+kruskal.py      - Kruskal’s algorithm implementation using Union-Find
+graph_utils.py  - functions for reading graph data and building structures
 
 INPUT FORMAT:
-Each line: edgeID startNode endNode weight
-Lines starting with # are comments and are ignored
+Each line represents one edge:
+edgeID startNode endNode weight
+
+Lines starting with '#' are comments and are ignored.
 
 OUTPUT FORMAT:
-Same as input — only the edges selected for the MST
+Same as input format, but only includes edges selected for the MST.
 
 DEPENDENCIES:
-Python 3 only, no external libraries
+Python 3 (no external libraries required)
