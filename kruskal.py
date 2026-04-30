@@ -37,16 +37,3 @@ def kruskal(edges, nodes):
         print("Graph is not fully connected!")
     
     return mst
-
-if __name__ == "__main__":
-    edges = [
-        (1, 1, 2, 4),
-        (2, 1, 3, 2),
-        (3, 2, 3, 1),
-        (4, 2, 4, 5),
-        (5, 3, 4, 3)
-    ]
-    nodes = {1, 2, 3, 4}
-
-    mst = kruskal(edges, nodes)
-    print(mst)
