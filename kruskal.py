@@ -32,8 +32,5 @@ def kruskal(edges, nodes):
 
         if len(mst) == len(nodes) - 1:
             break
-
-    if len(mst) != len(nodes) - 1:
-        print("Graph is not fully connected!")
     
     return mst
