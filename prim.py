@@ -2,7 +2,7 @@
 class MinPriorityQueue:
     """
     Min-heap priority queue.
-    Mantains a position dictionary so any node can be located in the heap at O(1).
+    Takes a position dictionary so any node can be located in the heap at O(1).
     """
 
     def __init__(self):
