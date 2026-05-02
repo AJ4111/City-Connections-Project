@@ -9,11 +9,12 @@ python main.py OL.cedge.txt output.txt
 DESCRIPTION:
 This program computes a Minimum Spanning Tree (MST) for a given graph. 
 We implemented two algorithms: Kruskal’s algorithm and Prim’s algorithm.
-Both aim to connect all nodes with the minimum total edge weight.
+The goal is to connect all nodes with the minimum total edge weight.
 
 FILES:
 main.py         - main program; reads input, runs MST algorithm, writes output
 kruskal.py      - Kruskal’s algorithm implementation using Union-Find
+prim.py         - Prim’s algorithm implementation
 graph_utils.py  - functions for reading graph data and building structures
 
 INPUT FORMAT:
